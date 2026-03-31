@@ -388,6 +388,60 @@
       margin-left: 6px;
     }
 
+    /* ===== PAYPAL BUTTON ===== */
+    #paypal-button-container {
+      min-height: 55px;
+    }
+
+    /* ===== SUCCESS MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); z-index: 200;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      max-width: 480px; width: 90%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+      animation: fadeInUp 0.3s ease-out;
+    }
+    .modal-icon {
+      width: 64px; height: 64px;
+      background: #E8F8F0; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+    }
+    .modal h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .modal p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+    .license-key-box {
+      background: #F5F7FA;
+      border: 2px dashed var(--blue);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 16px; font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      word-break: break-all;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .license-key-box:hover { background: var(--blue-light); }
+    .license-key-box .hint {
+      display: block; font-size: 11px; font-weight: 500;
+      color: var(--text-secondary); margin-top: 8px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .modal .btn-primary { display: inline-flex; }
+
     /* ===== FOOTER ===== */
     footer {
       padding: 40px 24px;
@@ -539,7 +593,7 @@
           <li>Attachment reminder</li>
           <li>Priority support</li>
         </ul>
-        <a href="#" class="btn-primary" id="pro-cta" onclick="subscribe(event)">Upgrade with PayPal</a>
+        <div id="paypal-button-container"></div>
       </div>
     </div>
   </div>
@@ -569,6 +623,22 @@
   </div>
 </section>
 
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#27AE60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h3>Pro activated!</h3>
+    <p>Your license key is ready. Copy it and paste into the extension:<br>Extension popup &rarr; Settings &rarr; Activate License Key</p>
+    <div class="license-key-box" id="licenseKeyBox" onclick="copyKey()">
+      <span id="licenseKeyText">...</span>
+      <span class="hint">Click to copy</span>
+    </div>
+    <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-primary">Open Extension</a>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -581,31 +651,86 @@
   </div>
 </footer>
 
+<script src="https://www.paypal.com/sdk/js?client-id=Ae-G0TZ2sY3pqkG-fhOuBYfs0MacW7TT4adnZzWmda5vFDdGxEVq-P0mr2WPn3RdF9kvmPkj8VK52NSt&vault=true&intent=subscription"></script>
 <script>
-  const plans = {
+  var plans = {
     monthly: { price: '$3.99', period: '/month', note: 'Cancel anytime', id: 'P-3ED32411AR166760ENHFMPIA' },
     yearly:  { price: '$29.99', period: '/year', note: 'Billed annually', id: 'P-6L126337BR7439135NHFMPII' }
   };
-  let currentPlan = 'monthly';
+  var currentPlan = 'monthly';
+  var API_BASE = 'https://nanobanana-clean.ru';
 
   function setPricing(type) {
     currentPlan = type;
-    const p = plans[type];
-    document.getElementById('pro-price').innerHTML = `${p.price}<span>${p.period}</span>`;
+    var p = plans[type];
+    document.getElementById('pro-price').innerHTML = p.price + '<span>' + p.period + '</span>';
     document.getElementById('pro-note').textContent = p.note;
-    document.querySelectorAll('.price-toggle button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.price-toggle button').forEach(function(b) { b.classList.remove('active'); });
     event.target.closest('button').classList.add('active');
+    renderPayPalButtons();
   }
 
-  function subscribe(e) {
-    e.preventDefault();
-    const planId = plans[currentPlan].id;
-    window.open(`https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=${planId}`, '_blank');
+  function renderPayPalButtons() {
+    var container = document.getElementById('paypal-button-container');
+    container.innerHTML = '';
+    paypal.Buttons({
+      style: {
+        shape: 'rect',
+        color: 'blue',
+        layout: 'vertical',
+        label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          plan_id: plans[currentPlan].id
+        });
+      },
+      onApprove: function(data) {
+        // Активировать подписку на бэкенде
+        fetch(API_BASE + '/api/activate-subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            subscriptionId: data.subscriptionID,
+            product: 'outlook-power-tools'
+          })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(result) {
+          if (result.success && result.key) {
+            document.getElementById('licenseKeyText').textContent = result.key;
+            document.getElementById('successModal').classList.add('active');
+          } else {
+            alert('Payment received! Contact support for your license key: novikn552ta@gmail.com\nSubscription ID: ' + data.subscriptionID);
+          }
+        })
+        .catch(function() {
+          alert('Payment received! Contact support for your license key: novikn552ta@gmail.com\nSubscription ID: ' + data.subscriptionID);
+        });
+      },
+      onError: function(err) {
+        console.error('PayPal error:', err);
+      }
+    }).render('#paypal-button-container');
   }
+
+  function copyKey() {
+    var key = document.getElementById('licenseKeyText').textContent;
+    navigator.clipboard.writeText(key).then(function() {
+      var hint = document.querySelector('.license-key-box .hint');
+      hint.textContent = 'Copied!';
+      setTimeout(function() { hint.textContent = 'Click to copy'; }, 2000);
+    });
+  }
+
+  // Закрытие модалки по клику на оверлей
+  document.getElementById('successModal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('active');
+  });
 
   // Intersection Observer для анимаций
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
@@ -613,12 +738,15 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.feature-card, .price-card').forEach(el => {
+  document.querySelectorAll('.feature-card, .price-card').forEach(function(el) {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(el);
   });
+
+  // Рендерим PayPal кнопки при загрузке
+  renderPayPalButtons();
 </script>
 
 </body>
