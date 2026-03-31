@@ -1,0 +1,48 @@
+# Outlook Power Tools
+
+Chrome extension that brings back email templates, quick steps, keyboard shortcuts, and attachment reminder to New Outlook (OWA).
+
+## Problem
+
+Microsoft removed or limited several productivity features when transitioning to New Outlook:
+- Quick Steps with custom email templates (new email, reply with template)
+- Custom keyboard shortcuts for email actions
+- Reliable attachment reminder
+
+Outlook Power Tools is a Chrome extension that restores these features directly in the browser.
+
+## Features
+
+### Email Templates
+Save any email as a reusable template with subject line, body text, and recipients. Insert templates into compose with two clicks from the popup or the in-page Templates button.
+
+### Quick Steps
+Chain multiple email actions into a single click. Supported actions: mark as read, move to folder, flag, forward to, reply with template, delete. Create custom combos like "Mark as read + Move to Archive" and trigger them from the toolbar.
+
+### Keyboard Shortcuts
+Record any key combination (Ctrl+Shift+T, etc.) and bind it to insert a template, trigger a quick step, or perform native Outlook actions (archive, flag, move to folder).
+
+### Attachment Reminder
+Detects when you mention "attached", "attachment", "file", or similar keywords in English and Russian, then warns you before sending if no attachment is present.
+
+## Pricing
+
+- Free: 3 templates, 3 quick steps, 3 keyboard shortcuts, attachment reminder (always free)
+- Pro Monthly: $3.99/month (PayPal, cancel anytime)
+- Pro Yearly: $29.99/year (PayPal, save 37%)
+
+## Technical Details
+
+- Chrome Extension Manifest V3
+- Works on: outlook.live.com, outlook.office.com, outlook.office365.com
+- Data stored locally in chrome.storage.sync
+- No email content is read, stored, or transmitted
+- Anonymous usage analytics only (feature counts, no PII)
+- Payment processing via PayPal (extension does not handle payment data)
+
+## Links
+
+- Website: https://outlookpowertools.com/
+- Chrome Web Store: https://chromewebstore.google.com/detail/outlook-power-tools
+- Privacy Policy: https://outlookpowertools.com/privacy.html
+- Contact: novikn552ta@gmail.com

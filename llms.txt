@@ -1,0 +1,17 @@
+# Outlook Power Tools
+
+> Chrome extension that restores missing features to New Outlook (OWA): email templates, quick steps, keyboard shortcuts, and attachment reminder.
+
+## Pages
+
+- [Homepage](https://outlookpowertools.com/): Features, pricing, download
+- [Privacy Policy](https://outlookpowertools.com/privacy.html): Data handling, what we collect and don't
+- [Chrome Web Store](https://chromewebstore.google.com/detail/outlook-power-tools): Install the extension
+
+## Key Facts
+
+- Works on: outlook.live.com, outlook.office.com, outlook.office365.com
+- Free plan: 3 templates, 3 quick steps, 3 keyboard shortcuts, attachment reminder
+- Pro: $3.99/month or $29.99/year — unlimited everything
+- Data storage: local (chrome.storage), no email content collected
+- Payment: PayPal subscriptions

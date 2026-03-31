@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outlook Power Tools — Templates, Quick Steps & Shortcuts for New Outlook</title>
+  <meta name="description" content="Bring back email templates, quick steps, keyboard shortcuts and attachment reminder to New Outlook. Free Chrome extension for Outlook 365 and outlook.live.com.">
+  <link rel="canonical" href="https://outlookpowertools.com/">
+  <link rel="icon" type="image/png" sizes="48x48" href="icon48.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Outlook Power Tools — Restore Missing Features in New Outlook">
+  <meta property="og:description" content="Email templates, quick steps, keyboard shortcuts and attachment reminder for New Outlook. Free Chrome extension.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://outlookpowertools.com/">
+  <meta property="og:image" content="https://outlookpowertools.com/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Outlook Power Tools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Outlook Power Tools — Restore Missing Features in New Outlook">
+  <meta name="twitter:description" content="Email templates, quick steps, keyboard shortcuts and attachment reminder. Free Chrome extension.">
+  <meta name="twitter:image" content="https://outlookpowertools.com/og-image.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Outlook Power Tools",
+    "description": "Chrome extension that brings back email templates, quick steps, keyboard shortcuts and attachment reminder to New Outlook (OWA).",
+    "url": "https://outlookpowertools.com/",
+    "applicationCategory": "BrowserExtension",
+    "operatingSystem": "Chrome",
+    "offers": [
+      {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free plan: 3 templates, 3 quick steps, 3 shortcuts"
+      },
+      {
+        "@type": "Offer",
+        "price": "3.99",
+        "priceCurrency": "USD",
+        "billingIncrement": "P1M",
+        "description": "Pro monthly: unlimited templates, quick steps, shortcuts"
+      }
+    ],
+    "author": {
+      "@type": "Organization",
+      "name": "Outlook Power Tools",
+      "url": "https://outlookpowertools.com/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Outlook Power Tools work with New Outlook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It works on outlook.live.com, outlook.office.com, and outlook.office365.com — all versions of New Outlook in the browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The free plan includes 3 email templates, 3 quick steps, 3 keyboard shortcuts, and the attachment reminder. Pro ($3.99/mo) unlocks unlimited."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are Quick Steps in New Outlook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoft limited Quick Steps in New Outlook. Outlook Power Tools restores them as a Chrome extension — create custom action combos (mark as read + move, flag + forward) and run them with one click."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it read my emails?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Templates and shortcuts are stored locally in your browser (chrome.storage). The extension does not read, store, or transmit email content."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #0078D4;
+      --blue-dark: #005A9E;
+      --blue-light: #E8F4FD;
+      --amber: #FFB900;
+      --amber-light: #FFF4D4;
+      --bg: #FAFBFC;
+      --surface: #FFFFFF;
+      --text: #1A1A2E;
+      --text-secondary: #5A6078;
+      --border: #E2E6ED;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 251, 252, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 18px; color: var(--text);
+      text-decoration: none;
+    }
+    .nav-brand svg { width: 32px; height: 32px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 15px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: white;
+      padding: 8px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,120,212,0.06) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,185,0,0.04) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 780px; margin: 0 auto; position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--amber-light); color: #996D00;
+      padding: 6px 16px; border-radius: 100px;
+      font-size: 13px; font-weight: 600;
+      margin-bottom: 28px;
+      animation: fadeInDown 0.6s ease-out;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--amber); border-radius: 50%;
+    }
+    h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.7s ease-out;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, var(--blue) 0%, #00A4EF 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-family: 'Source Serif 4', serif;
+      font-size: 19px; color: var(--text-secondary);
+      max-width: 560px; margin: 0 auto 36px;
+      line-height: 1.7;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease-out;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--blue); color: white;
+      padding: 14px 32px; border-radius: 10px;
+      text-decoration: none; font-weight: 700; font-size: 16px;
+      transition: all 0.2s; border: none; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,120,212,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,120,212,0.3);
+    }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); color: var(--text);
+      padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--blue); color: var(--blue);
+      transform: translateY(-1px);
+    }
+    .hero-note {
+      margin-top: 20px; font-size: 13px;
+      color: var(--text-secondary);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      padding: 80px 24px;
+      max-width: 1120px; margin: 0 auto;
+    }
+    .section-label {
+      text-transform: uppercase; letter-spacing: 0.12em;
+      font-size: 12px; font-weight: 700; color: var(--blue);
+      text-align: center; margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 52px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--blue);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover {
+      border-color: transparent;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,120,212,0.1);
+      transform: translateY(-4px);
+    }
+    .feature-card:hover::after { transform: scaleX(1); }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .feature-icon.tpl { background: var(--blue-light); color: var(--blue); }
+    .feature-icon.qs { background: #FFF0E0; color: #E67E22; }
+    .feature-icon.kb { background: #E8F8F0; color: #27AE60; }
+    .feature-icon.att { background: var(--amber-light); color: #D4A017; }
+    .feature-card h3 {
+      font-size: 18px; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 14px; line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      padding: 80px 24px;
+      background: linear-gradient(180deg, var(--bg) 0%, #F0F4F8 100%);
+    }
+    .pricing-inner { max-width: 800px; margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 52px;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .price-card.pro {
+      border-color: var(--blue);
+      box-shadow: 0 8px 32px rgba(0,120,212,0.1);
+    }
+    .price-card.pro::before {
+      content: 'Popular';
+      position: absolute; top: -12px; right: 24px;
+      background: var(--amber); color: #1A1A2E;
+      font-size: 12px; font-weight: 700;
+      padding: 4px 14px; border-radius: 100px;
+    }
+    .price-card h3 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .price-card .price {
+      font-size: 40px; font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 16px 0 4px;
+    }
+    .price-card .price span { font-size: 16px; font-weight: 500; color: var(--text-secondary); }
+    .price-card .price-note {
+      font-size: 13px; color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .price-card ul {
+      list-style: none; margin-bottom: 28px;
+    }
+    .price-card li {
+      padding: 6px 0; font-size: 14px;
+      display: flex; align-items: center; gap: 10px;
+      color: var(--text-secondary);
+    }
+    .price-card li::before {
+      content: '';
+      width: 18px; height: 18px; flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2327AE60'%3E%3Cpath d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'/%3E%3C/svg%3E") no-repeat center/contain;
+    }
+    .price-card .btn-primary { width: 100%; justify-content: center; }
+    .price-card .btn-secondary { width: 100%; justify-content: center; }
+    .price-toggle {
+      display: flex; gap: 8px; justify-content: center;
+      margin-bottom: 8px;
+    }
+    .price-toggle button {
+      background: transparent; border: 1px solid var(--border);
+      padding: 8px 20px; border-radius: 8px;
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      cursor: pointer; color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .price-toggle button.active {
+      background: var(--blue); color: white; border-color: var(--blue);
+    }
+    .price-save {
+      background: #E8F8F0; color: #27AE60;
+      font-size: 12px; font-weight: 700;
+      padding: 2px 10px; border-radius: 100px;
+      margin-left: 6px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer p { font-size: 13px; color: var(--text-secondary); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px; color: var(--text-secondary);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--blue); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .hero { padding: 120px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="11" fill="url(#g1)"/>
+        <path d="M12 18l12 8 12-8v14a2 2 0 01-2 2H14a2 2 0 01-2-2V18z" fill="#fff" opacity="0.9"/>
+        <path d="M12 16a2 2 0 012-2h20a2 2 0 012 2l-12 8-12-8z" fill="#fff"/>
+        <path d="M30 12l4 8-4 8-4-8 4-8z" fill="#FFB900"/>
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#0078D4"/><stop offset="1" stop-color="#004A8C"/></linearGradient></defs>
+      </svg>
+      Outlook Power Tools
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+    </ul>
+    <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="nav-cta">Add to Chrome</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">New Outlook lost your favorite features?</div>
+    <h1>Your Outlook workflow,<br><span class="accent">fully restored.</span></h1>
+    <p class="hero-sub">
+      Microsoft removed Quick Steps, templates, and custom shortcuts from New Outlook.
+      This extension brings them back in one click.
+    </p>
+    <div class="hero-actions">
+      <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+        Add to Chrome &mdash; Free
+      </a>
+      <a href="#features" class="btn-secondary">See features</a>
+    </div>
+    <p class="hero-note">Free forever with 3 of each. Pro unlocks unlimited.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <p class="section-label">Features</p>
+  <h2 class="section-title">Everything New Outlook should have had.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon tpl">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      </div>
+      <h3>Email Templates</h3>
+      <p>Save any reply as a reusable template. Insert it into compose with two clicks. Subject, body, recipients&nbsp;&mdash; all pre-filled.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon qs">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3>Quick Steps</h3>
+      <p>Chain multiple actions into one click. Mark&nbsp;as&nbsp;read + move to folder. Flag + forward. Delete + archive. Your rules, your combos.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon kb">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/><path d="M6 12h.01"/><path d="M10 12h.01"/><path d="M14 12h.01"/><path d="M18 12h.01"/><path d="M8 16h8"/></svg>
+      </div>
+      <h3>Keyboard Shortcuts</h3>
+      <p>Record any key combination and bind it to templates, quick steps, or native Outlook actions. Ctrl+Shift+anything&nbsp;&mdash; it just works.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon att">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+      </div>
+      <h3>Attachment Reminder</h3>
+      <p>Wrote "attached" but forgot the file? The extension catches it before you hit Send. Never send an empty "see attached" email again.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Start free. Upgrade when you need more.</h2>
+    <div class="price-toggle">
+      <button class="active" onclick="setPricing('monthly')">Monthly</button>
+      <button onclick="setPricing('yearly')">Yearly <span class="price-save">Save 37%</span></button>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Free</h3>
+        <div class="price">$0<span>/forever</span></div>
+        <p class="price-note">No credit card required</p>
+        <ul>
+          <li>3 email templates</li>
+          <li>3 quick steps</li>
+          <li>3 keyboard shortcuts</li>
+          <li>Attachment reminder</li>
+        </ul>
+        <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-secondary">Get started</a>
+      </div>
+      <div class="price-card pro">
+        <h3>Pro</h3>
+        <div class="price" id="pro-price">$3.99<span>/month</span></div>
+        <p class="price-note" id="pro-note">Cancel anytime</p>
+        <ul>
+          <li>Unlimited templates</li>
+          <li>Unlimited quick steps</li>
+          <li>Unlimited shortcuts</li>
+          <li>Attachment reminder</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#" class="btn-primary" id="pro-cta" onclick="subscribe(event)">Upgrade with PayPal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="features" id="faq" style="padding-top: 40px;">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title">Common questions</h2>
+  <div style="max-width: 720px; margin: 0 auto;">
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Does Outlook Power Tools work with New Outlook?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. It works on outlook.live.com, outlook.office.com, and outlook.office365.com — all versions of New Outlook in the browser. Compatible with any Chromium-based browser.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Where are Quick Steps in New Outlook?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Microsoft limited Quick Steps in New Outlook. This extension restores them — create custom action combos (mark as read + move to folder, flag + forward) and run them with one click or a keyboard shortcut.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Is it free?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. The free plan includes 3 email templates, 3 quick steps, 3 keyboard shortcuts, and the attachment reminder (always free). Pro ($3.99/month or $29.99/year) unlocks unlimited everything.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Does it read my emails?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">No. Templates and shortcuts are stored locally in your browser. The extension does not read, store, or transmit your email content. See our <a href="/privacy.html" style="color: var(--blue);">privacy policy</a>.</p>
+    </details>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Outlook Power Tools. Not affiliated with Microsoft.</p>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="mailto:novikn552ta@gmail.com">Support</a>
+      <a href="https://chromewebstore.google.com/detail/outlook-power-tools">Chrome Web Store</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const plans = {
+    monthly: { price: '$3.99', period: '/month', note: 'Cancel anytime', id: 'P-3ED32411AR166760ENHFMPIA' },
+    yearly:  { price: '$29.99', period: '/year', note: 'Billed annually', id: 'P-6L126337BR7439135NHFMPII' }
+  };
+  let currentPlan = 'monthly';
+
+  function setPricing(type) {
+    currentPlan = type;
+    const p = plans[type];
+    document.getElementById('pro-price').innerHTML = `${p.price}<span>${p.period}</span>`;
+    document.getElementById('pro-note').textContent = p.note;
+    document.querySelectorAll('.price-toggle button').forEach(b => b.classList.remove('active'));
+    event.target.closest('button').classList.add('active');
+  }
+
+  function subscribe(e) {
+    e.preventDefault();
+    const planId = plans[currentPlan].id;
+    window.open(`https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=${planId}`, '_blank');
+  }
+
+  // Intersection Observer для анимаций
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .price-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
