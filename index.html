@@ -593,7 +593,8 @@
           <li>Attachment reminder</li>
           <li>Priority support</li>
         </ul>
-        <div id="paypal-button-container"></div>
+        <button id="stripe-checkout-btn" onclick="startStripeCheckout()" style="width:100%; padding:14px; background:var(--primary); color:#fff; border:none; font-size:15px; font-weight:700; border-radius:var(--radius); cursor:pointer;">Subscribe — $3.99/mo</button>
+        <p id="stripe-status" style="text-align:center; font-size:13px; color:var(--text-secondary); margin-top:8px;"></p>
       </div>
     </div>
   </div>
@@ -652,14 +653,12 @@
 </footer>
 
 <script defer src="/_vercel/insights/script.js"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=Ae-G0TZ2sY3pqkG-fhOuBYfs0MacW7TT4adnZzWmda5vFDdGxEVq-P0mr2WPn3RdF9kvmPkj8VK52NSt&vault=true&intent=subscription"></script>
 <script>
   var plans = {
-    monthly: { price: '$3.99', period: '/month', note: 'Cancel anytime', id: 'P-3ED32411AR166760ENHFMPIA' },
-    yearly:  { price: '$29.99', period: '/year', note: 'Billed annually', id: 'P-6L126337BR7439135NHFMPII' }
+    monthly: { price: '$3.99', period: '/month', note: 'Cancel anytime', btnText: 'Subscribe — $3.99/mo' },
+    yearly:  { price: '$29.99', period: '/year', note: 'Billed annually', btnText: 'Subscribe — $29.99/yr' }
   };
   var currentPlan = 'monthly';
-  var API_BASE = 'https://nanobanana-clean.ru';
 
   function setPricing(type) {
     currentPlan = type;
@@ -668,51 +667,34 @@
     document.getElementById('pro-note').textContent = p.note;
     document.querySelectorAll('.price-toggle button').forEach(function(b) { b.classList.remove('active'); });
     event.target.closest('button').classList.add('active');
-    renderPayPalButtons();
+    var btn = document.getElementById('stripe-checkout-btn');
+    if (btn) btn.textContent = p.btnText;
   }
 
-  function renderPayPalButtons() {
-    var container = document.getElementById('paypal-button-container');
-    container.innerHTML = '';
-    paypal.Buttons({
-      style: {
-        shape: 'rect',
-        color: 'blue',
-        layout: 'vertical',
-        label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          plan_id: plans[currentPlan].id
-        });
-      },
-      onApprove: function(data) {
-        // Активировать подписку на бэкенде
-        fetch(API_BASE + '/api/activate-subscription', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            subscriptionId: data.subscriptionID,
-            product: 'outlook-power-tools'
-          })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function(result) {
-          if (result.success && result.key) {
-            document.getElementById('licenseKeyText').textContent = result.key;
-            document.getElementById('successModal').classList.add('active');
-          } else {
-            alert('Payment received! Contact support for your license key: novikn552ta@gmail.com\nSubscription ID: ' + data.subscriptionID);
-          }
-        })
-        .catch(function() {
-          alert('Payment received! Contact support for your license key: novikn552ta@gmail.com\nSubscription ID: ' + data.subscriptionID);
-        });
-      },
-      onError: function(err) {
-        console.error('PayPal error:', err);
+  function startStripeCheckout() {
+    var btn = document.getElementById('stripe-checkout-btn');
+    var status = document.getElementById('stripe-status');
+    if (btn) { btn.disabled = true; btn.textContent = 'Redirecting...'; }
+    if (status) status.textContent = '';
+
+    fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plan: currentPlan, product: 'outlook-power-tools' })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        if (btn) { btn.disabled = false; btn.textContent = plans[currentPlan].btnText; }
+        if (status) status.textContent = 'Something went wrong. Please try again.';
       }
-    }).render('#paypal-button-container');
+    })
+    .catch(function() {
+      if (btn) { btn.disabled = false; btn.textContent = plans[currentPlan].btnText; }
+      if (status) status.textContent = 'Connection error. Please try again.';
+    });
   }
 
   function copyKey() {
@@ -746,8 +728,22 @@
     observer.observe(el);
   });
 
-  // Рендерим PayPal кнопки при загрузке
-  renderPayPalButtons();
+  // Обработка возврата с Stripe Checkout
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var sessionId = params.get('session_id');
+    if (!sessionId) return;
+
+    fetch('/api/checkout-success?session_id=' + encodeURIComponent(sessionId))
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success && data.key) {
+          document.getElementById('licenseKeyText').textContent = data.key;
+          document.getElementById('successModal').classList.add('active');
+        }
+      })
+      .catch(function() {});
+  })();
 </script>
 
 </body>
