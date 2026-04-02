@@ -1,6 +1,6 @@
 # Outlook Power Tools
 
-Chrome extension that brings back email templates, quick steps, keyboard shortcuts, and attachment reminder to New Outlook (OWA).
+Chrome extension that adds ad blocker, email templates, save email as PDF, quick steps, keyboard shortcuts, unread badge, and attachment reminder to New Outlook (OWA).
 
 ## Problem
 
@@ -8,41 +8,55 @@ Microsoft removed or limited several productivity features when transitioning to
 - Quick Steps with custom email templates (new email, reply with template)
 - Custom keyboard shortcuts for email actions
 - Reliable attachment reminder
+- No built-in ad blocker for free Outlook accounts
+- No one-click PDF export for emails
+- No unread count badge on browser tab
 
-Outlook Power Tools is a Chrome extension that restores these features directly in the browser.
+Outlook Power Tools is a Chrome extension that restores these features and adds new ones directly in the browser.
 
 ## Features
 
-### Email Templates
-Save any email as a reusable template with subject line, body text, and recipients. Insert templates into compose with two clicks from the popup or the in-page Templates button.
+### Ad Blocker (Free)
+Removes sidebar ads, fake email ads that look like real messages, "Upgrade to Premium" banners, and "Ad Choices" labels. Works automatically on all Outlook web domains. Toggle on/off in extension settings.
 
-### Quick Steps
-Chain multiple email actions into a single click. Supported actions: mark as read, move to folder, flag, forward to, reply with template, delete. Create custom combos like "Mark as read + Move to Archive" and trigger them from the toolbar.
+### Email Templates (Free + Pro)
+Save any email as a reusable template with subject line, body text, and recipients. 15 built-in templates included across 5 categories: Acknowledgment, Follow-up, Scheduling, Out of Office, and Support. Insert into compose with two clicks from the dropdown or popup.
 
-### Keyboard Shortcuts
-Record any key combination (Ctrl+Shift+T, etc.) and bind it to insert a template, trigger a quick step, or perform native Outlook actions (archive, flag, move to folder).
+### Save Email as PDF (Free + Pro)
+Export any open email to PDF directly from the toolbar. Free users get the browser print dialog with "Save as PDF" option. Pro users get one-click auto-download — file saves directly to Downloads folder without any dialog.
 
-### Attachment Reminder
-Detects when you mention "attached", "attachment", "file", or similar keywords in English and Russian, then warns you before sending if no attachment is present.
+### Quick Steps (Free + Pro)
+Chain multiple email actions into a single click. Supported actions: mark as read, move to folder, flag, unflag, forward to, reply with template, delete. Create custom combos like "Mark as read + Move to Archive" and trigger them from the toolbar.
+
+### Keyboard Shortcuts (Free + Pro)
+Record any key combination (Ctrl+Shift+T, etc.) and bind it to insert a template, trigger a quick step, or perform native Outlook actions (reply, archive, flag, move to folder, new mail, mark as read).
+
+### Unread Count Badge (Free)
+Displays the number of unread emails on the browser tab favicon, in the page title (e.g., "(3) Mail - Outlook"), and on the extension icon in Chrome toolbar. Updates automatically when new emails arrive or existing ones are read.
+
+### Attachment Reminder (Free)
+Detects when you mention "attached", "attachment", "file", or similar keywords in English and Russian, then warns you before sending if no attachment is present. Prevents embarrassing "forgot the file" situations.
 
 ## Pricing
 
-- Free: 3 templates, 3 quick steps, 3 keyboard shortcuts, attachment reminder (always free)
-- Pro Monthly: $3.99/month (PayPal, cancel anytime)
-- Pro Yearly: $29.99/year (PayPal, save 37%)
+- Free: ad blocker, unread badge, attachment reminder, 15 built-in templates, 3 custom templates, 3 quick steps, 3 keyboard shortcuts, PDF export via print dialog
+- Pro Monthly: $3.99/month (cancel anytime)
+- Pro Yearly: $29.99/year (save 37%)
 
 ## Technical Details
 
 - Chrome Extension Manifest V3
+- Version: 1.1.0
 - Works on: outlook.live.com, outlook.office.com, outlook.office365.com
-- Data stored locally in chrome.storage.sync
+- Compatible with any Chromium-based browser
+- Data stored locally in chrome.storage.sync (synced across devices via Google account)
 - No email content is read, stored, or transmitted
-- Anonymous usage analytics only (feature counts, no PII)
-- Payment processing via PayPal (extension does not handle payment data)
+- Anonymous usage analytics only (feature usage counts, no PII)
+- Payment processing via Stripe (extension does not handle payment data)
 
 ## Links
 
 - Website: https://outlookpowertools.com/
-- Chrome Web Store: https://chromewebstore.google.com/detail/outlook-power-tools
+- Chrome Web Store: https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn
 - Privacy Policy: https://outlookpowertools.com/privacy.html
 - Contact: novikn552ta@gmail.com

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outlook Power Tools — Templates, Quick Steps & Shortcuts for New Outlook</title>
-  <meta name="description" content="Bring back email templates, quick steps, keyboard shortcuts and attachment reminder to New Outlook. Free Chrome extension for Outlook 365 and outlook.live.com.">
+  <title>Outlook Power Tools — Ad Blocker, Templates, PDF Export for New Outlook</title>
+  <meta name="description" content="Ad blocker, email templates, save as PDF, quick steps, keyboard shortcuts & unread badge for New Outlook. Free Chrome extension for outlook.live.com.">
   <link rel="canonical" href="https://outlookpowertools.com/">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -13,16 +13,16 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Outlook Power Tools — Restore Missing Features in New Outlook">
-  <meta property="og:description" content="Email templates, quick steps, keyboard shortcuts and attachment reminder for New Outlook. Free Chrome extension.">
+  <meta property="og:title" content="Outlook Power Tools — Ad Blocker, Templates & PDF Export for New Outlook">
+  <meta property="og:description" content="Ad blocker, email templates, save as PDF, quick steps, keyboard shortcuts & unread badge. Free Chrome extension.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://outlookpowertools.com/">
   <meta property="og:image" content="https://outlookpowertools.com/og-image.png">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Outlook Power Tools">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Outlook Power Tools — Restore Missing Features in New Outlook">
-  <meta name="twitter:description" content="Email templates, quick steps, keyboard shortcuts and attachment reminder. Free Chrome extension.">
+  <meta name="twitter:title" content="Outlook Power Tools — Ad Blocker, Templates & PDF Export for New Outlook">
+  <meta name="twitter:description" content="Ad blocker, email templates, save as PDF, quick steps, shortcuts & unread badge. Free Chrome extension.">
   <meta name="twitter:image" content="https://outlookpowertools.com/og-image.png">
 
   <!-- Schema.org JSON-LD -->
@@ -31,28 +31,37 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Outlook Power Tools",
-    "description": "Chrome extension that brings back email templates, quick steps, keyboard shortcuts and attachment reminder to New Outlook (OWA).",
+    "description": "Chrome extension: ad blocker, email templates, save email as PDF, quick steps, keyboard shortcuts, unread badge and attachment reminder for New Outlook.",
     "url": "https://outlookpowertools.com/",
     "applicationCategory": "BrowserExtension",
     "operatingSystem": "Chrome",
+    "softwareVersion": "1.1.0",
+    "featureList": "Ad Blocker, Email Templates, Save Email as PDF, Quick Steps, Keyboard Shortcuts, Unread Count Badge, Attachment Reminder, Built-in Canned Responses",
     "offers": [
       {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Free plan: 3 templates, 3 quick steps, 3 shortcuts"
+        "description": "Free: ad blocker, unread badge, attachment reminder, 15 built-in templates, 3 custom templates, 3 quick steps, 3 shortcuts, PDF via print dialog"
       },
       {
         "@type": "Offer",
         "price": "3.99",
         "priceCurrency": "USD",
         "billingIncrement": "P1M",
-        "description": "Pro monthly: unlimited templates, quick steps, shortcuts"
+        "description": "Pro monthly: unlimited templates, quick steps, shortcuts, one-click PDF download"
+      },
+      {
+        "@type": "Offer",
+        "price": "29.99",
+        "priceCurrency": "USD",
+        "billingIncrement": "P1Y",
+        "description": "Pro yearly: same as monthly, save 37%"
       }
     ],
     "author": {
       "@type": "Organization",
-      "name": "Outlook Power Tools",
+      "name": "NOVIKOV LABS",
       "url": "https://outlookpowertools.com/"
     }
   }
@@ -72,10 +81,18 @@
       },
       {
         "@type": "Question",
-        "name": "Is it free?",
+        "name": "Does it block ads in Outlook?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The free plan includes 3 email templates, 3 quick steps, 3 keyboard shortcuts, and the attachment reminder. Pro ($3.99/mo) unlocks unlimited."
+          "text": "Yes. The built-in ad blocker removes sidebar ads, fake email ads, upgrade banners, and Ad Choices labels from your Outlook inbox automatically. Free for all users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I save Outlook emails as PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Click the PDF button in the toolbar to export any open email. Free users get a print dialog; Pro users get one-click auto-download to their Downloads folder."
         }
       },
       {
@@ -83,7 +100,23 @@
         "name": "Where are Quick Steps in New Outlook?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Microsoft limited Quick Steps in New Outlook. Outlook Power Tools restores them as a Chrome extension — create custom action combos (mark as read + move, flag + forward) and run them with one click."
+          "text": "Microsoft limited Quick Steps in New Outlook. Outlook Power Tools restores them — create custom action combos (mark as read + move, flag + forward) and run them with one click from the toolbar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it show unread email count?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The unread count badge appears on the browser tab favicon, in the page title, and on the extension icon in Chrome toolbar. Updates automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The free plan includes ad blocker, unread badge, attachment reminder, 15 built-in email templates, 3 custom templates, 3 quick steps, and 3 keyboard shortcuts. Pro ($3.99/mo or $29.99/yr) unlocks unlimited."
         }
       },
       {
@@ -91,7 +124,15 @@
         "name": "Does it read my emails?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Templates and shortcuts are stored locally in your browser (chrome.storage). The extension does not read, store, or transmit email content."
+          "text": "No. Templates and shortcuts are stored locally in your browser. The extension does not read, store, or transmit your email content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there built-in email templates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. 15 pre-made templates across 5 categories: Acknowledgment, Follow-up, Scheduling, Out of Office, and Support. Insert with two clicks — no setup needed."
         }
       }
     ]
