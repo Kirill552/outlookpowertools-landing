@@ -1,5 +1,11 @@
 {
   "rewrites": [
+    { "source": "/new-outlook-missing-features", "destination": "/new-outlook-missing-features.html" },
+    { "source": "/email-templates", "destination": "/email-templates.html" },
+    { "source": "/quick-steps", "destination": "/quick-steps.html" },
+    { "source": "/keyboard-shortcuts", "destination": "/keyboard-shortcuts.html" },
+    { "source": "/save-outlook-email-as-pdf", "destination": "/save-outlook-email-as-pdf.html" },
+    { "source": "/outlook-ad-blocker", "destination": "/outlook-ad-blocker.html" },
     { "source": "/api/:path*", "destination": "https://nanobanana-clean.ru/api/:path*" }
   ]
 }

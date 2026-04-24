@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outlook Power Tools — Ad Blocker, Templates, PDF Export for New Outlook</title>
-  <meta name="description" content="Ad blocker, email templates, save as PDF, quick steps, keyboard shortcuts & unread badge for New Outlook. Free Chrome extension for outlook.live.com.">
+  <title>Outlook Power Tools - New Outlook Chrome Extension</title>
+  <meta name="description" content="New Outlook Chrome extension with email templates, Quick Steps, custom shortcuts, ad blocker, PDF export, unread badge, and attachment reminder.">
   <link rel="canonical" href="https://outlookpowertools.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0078D4">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
@@ -13,127 +15,149 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Outlook Power Tools — Ad Blocker, Templates & PDF Export for New Outlook">
-  <meta property="og:description" content="Ad blocker, email templates, save as PDF, quick steps, keyboard shortcuts & unread badge. Free Chrome extension.">
+  <meta property="og:title" content="Outlook Power Tools - New Outlook Chrome Extension">
+  <meta property="og:description" content="Restore Quick Steps, email templates, shortcuts, ad blocking, PDF export, unread count, and attachment reminders in New Outlook.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://outlookpowertools.com/">
   <meta property="og:image" content="https://outlookpowertools.com/og-image.png">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Outlook Power Tools">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Outlook Power Tools — Ad Blocker, Templates & PDF Export for New Outlook">
-  <meta name="twitter:description" content="Ad blocker, email templates, save as PDF, quick steps, shortcuts & unread badge. Free Chrome extension.">
+  <meta name="twitter:title" content="Outlook Power Tools - New Outlook Chrome Extension">
+  <meta name="twitter:description" content="Restore Quick Steps, templates, shortcuts, ad blocking, PDF export, unread count, and attachment reminders in New Outlook.">
   <meta name="twitter:image" content="https://outlookpowertools.com/og-image.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Outlook Power Tools",
-    "description": "Chrome extension: ad blocker, email templates, save email as PDF, quick steps, keyboard shortcuts, unread badge and attachment reminder for New Outlook.",
-    "url": "https://outlookpowertools.com/",
-    "applicationCategory": "BrowserExtension",
-    "operatingSystem": "Chrome",
-    "softwareVersion": "1.1.0",
-    "featureList": "Ad Blocker, Email Templates, Save Email as PDF, Quick Steps, Keyboard Shortcuts, Unread Count Badge, Attachment Reminder, Built-in Canned Responses",
-    "offers": [
+    "@graph": [
       {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free: ad blocker, unread badge, attachment reminder, 15 built-in templates, 3 custom templates, 3 quick steps, 3 shortcuts, PDF via print dialog"
+        "@type": "Organization",
+        "@id": "https://outlookpowertools.com/#organization",
+        "name": "Outlook Power Tools",
+        "url": "https://outlookpowertools.com/",
+        "email": "novikn552ta@gmail.com",
+        "logo": "https://outlookpowertools.com/web-app-manifest-512x512.png",
+        "sameAs": [
+          "https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn"
+        ],
+        "knowsAbout": [
+          "New Outlook",
+          "Outlook Web App",
+          "email templates",
+          "Quick Steps",
+          "keyboard shortcuts",
+          "Chrome extensions",
+          "email productivity"
+        ]
       },
       {
-        "@type": "Offer",
-        "price": "3.99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "description": "Pro monthly: unlimited templates, quick steps, shortcuts, one-click PDF download"
+        "@type": "WebSite",
+        "@id": "https://outlookpowertools.com/#website",
+        "name": "Outlook Power Tools",
+        "url": "https://outlookpowertools.com/",
+        "publisher": { "@id": "https://outlookpowertools.com/#organization" },
+        "inLanguage": "en-US"
       },
       {
-        "@type": "Offer",
-        "price": "29.99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1Y",
-        "description": "Pro yearly: same as monthly, save 37%"
-      }
-    ],
-    "author": {
-      "@type": "Organization",
-      "name": "NOVIKOV LABS",
-      "url": "https://outlookpowertools.com/"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does Outlook Power Tools work with New Outlook?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. It works on outlook.live.com, outlook.office.com, and outlook.office365.com — all versions of New Outlook in the browser."
-        }
+        "@type": "SoftwareApplication",
+        "@id": "https://outlookpowertools.com/#software",
+        "name": "Outlook Power Tools",
+        "description": "Outlook Power Tools is a Chrome extension for New Outlook that adds email templates, Quick Steps, custom keyboard shortcuts, ad blocking, PDF export, unread count badges, and attachment reminders.",
+        "url": "https://outlookpowertools.com/",
+        "downloadUrl": "https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome, Microsoft Edge, Chromium-based browsers",
+        "softwareVersion": "1.1.1",
+        "isAccessibleForFree": true,
+        "publisher": { "@id": "https://outlookpowertools.com/#organization" },
+        "featureList": [
+          "Email templates and canned responses",
+          "Quick Steps for New Outlook",
+          "Custom keyboard shortcuts",
+          "Outlook ad blocker",
+          "Save Outlook email as PDF",
+          "Unread count badge",
+          "Attachment reminder"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Ad blocker, unread badge, attachment reminder, built-in templates, 3 custom templates, 3 quick steps, 3 shortcuts, and PDF export via print dialog."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Monthly",
+            "price": "3.99",
+            "priceCurrency": "USD",
+            "description": "Unlimited templates, Quick Steps, shortcuts, and one-click PDF download."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Yearly",
+            "price": "29.99",
+            "priceCurrency": "USD",
+            "description": "Unlimited templates, Quick Steps, shortcuts, and one-click PDF download with annual billing."
+          }
+        ]
       },
       {
-        "@type": "Question",
-        "name": "Does it block ads in Outlook?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The built-in ad blocker removes sidebar ads, fake email ads, upgrade banners, and Ad Choices labels from your Outlook inbox automatically. Free for all users."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I save Outlook emails as PDF?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Click the PDF button in the toolbar to export any open email. Free users get a print dialog; Pro users get one-click auto-download to their Downloads folder."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Where are Quick Steps in New Outlook?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Microsoft limited Quick Steps in New Outlook. Outlook Power Tools restores them — create custom action combos (mark as read + move, flag + forward) and run them with one click from the toolbar."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does it show unread email count?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The unread count badge appears on the browser tab favicon, in the page title, and on the extension icon in Chrome toolbar. Updates automatically."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is it free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The free plan includes ad blocker, unread badge, attachment reminder, 15 built-in email templates, 3 custom templates, 3 quick steps, and 3 keyboard shortcuts. Pro ($3.99/mo or $29.99/yr) unlocks unlimited."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does it read my emails?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Templates and shortcuts are stored locally in your browser. The extension does not read, store, or transmit your email content."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are there built-in email templates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. 15 pre-made templates across 5 categories: Acknowledgment, Follow-up, Scheduling, Out of Office, and Support. Insert with two clicks — no setup needed."
-        }
+        "@type": "FAQPage",
+        "@id": "https://outlookpowertools.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Outlook Power Tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Outlook Power Tools is a Chrome extension for New Outlook and Outlook Web App. It restores missing productivity workflows such as reusable email templates, Quick Steps, custom keyboard shortcuts, ad blocking, PDF export, unread count badges, and attachment reminders."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are Quick Steps in New Outlook?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "New Outlook has limited Quick Steps support, especially for personal Outlook accounts. Outlook Power Tools adds browser-based Quick Steps so users can run custom action combos like mark as read plus move to folder or reply with a template."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I create email templates in New Outlook?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Outlook Power Tools lets users save reusable replies, canned responses, subject lines, recipients, and body text, then insert them into New Outlook compose windows with two clicks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Outlook Power Tools block Outlook ads?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The extension removes Outlook Web sidebar ads, fake email ads, upgrade banners, and Ad Choices labels. The ad blocker is included in the free plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I save Outlook emails as PDF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Outlook Power Tools adds a PDF button to New Outlook. Free users get the browser print dialog; Pro users get one-click PDF downloads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Outlook Power Tools read or store email content?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. User templates, Quick Steps, and shortcuts are stored locally in Chrome storage. The extension does not transmit email content, subjects, recipients, or attachments."
+            }
+          }
+        ]
       }
     ]
   }
@@ -288,6 +312,56 @@
       animation: fadeInUp 1s ease-out;
     }
 
+    /* ===== ANSWER FIRST ===== */
+    .answer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px 72px;
+    }
+    .answer-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: 32px;
+      box-shadow: 0 10px 36px rgba(17, 24, 39, 0.05);
+    }
+    .answer h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .answer-lead {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .citation-note {
+      border-left: 3px solid var(--blue);
+      padding-left: 16px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .fact-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .fact-list li {
+      background: #F5F8FB;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .fact-list strong { color: var(--text); }
+
     /* ===== FEATURES ===== */
     .features {
       padding: 80px 24px;
@@ -341,6 +415,9 @@
     .feature-icon.qs { background: #FFF0E0; color: #E67E22; }
     .feature-icon.kb { background: #E8F8F0; color: #27AE60; }
     .feature-icon.att { background: var(--amber-light); color: #D4A017; }
+    .feature-icon.ad { background: #FDECEC; color: #D83B01; }
+    .feature-icon.pdf { background: #EFE8FD; color: #6B46C1; }
+    .feature-icon.badge { background: #E8FAFD; color: #0086A8; }
     .feature-card h3 {
       font-size: 18px; font-weight: 700;
       margin-bottom: 10px;
@@ -429,9 +506,41 @@
       margin-left: 6px;
     }
 
-    /* ===== PAYPAL BUTTON ===== */
-    #paypal-button-container {
-      min-height: 55px;
+    /* ===== INTERNAL LINKS ===== */
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .guide-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .guide-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 120, 212, 0.08);
+    }
+    .guide-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .guide-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+
+    .quote-card {
+      margin-top: 36px;
+      background: #F7FAFF;
+      border: 1px solid #D7E9FF;
+      border-radius: var(--radius);
+      padding: 24px;
+      color: var(--text);
+      font-family: 'Source Serif 4', serif;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
     /* ===== SUCCESS MODAL ===== */
@@ -516,6 +625,7 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .pricing-grid { grid-template-columns: 1fr; }
+      .answer-panel { grid-template-columns: 1fr; padding: 24px; }
       .footer-inner { flex-direction: column; text-align: center; }
       .hero { padding: 120px 20px 60px; }
     }
@@ -538,31 +648,59 @@
     </a>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
+      <li><a href="/new-outlook-missing-features">Guide</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/privacy.html">Privacy</a></li>
     </ul>
-    <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="nav-cta">Add to Chrome</a>
+    <a href="https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn" class="nav-cta">Add to Chrome</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">New Outlook lost your favorite features?</div>
-    <h1>Your Outlook workflow,<br><span class="accent">fully restored.</span></h1>
+    <div class="hero-badge">New Outlook missing features?</div>
+    <h1>New Outlook Chrome extension for <span class="accent">power users.</span></h1>
     <p class="hero-sub">
-      Microsoft removed Quick Steps, templates, and custom shortcuts from New Outlook.
-      This extension brings them back in one click.
+      Outlook Power Tools restores Quick Steps, email templates, custom keyboard shortcuts,
+      ad blocking, PDF export, unread badges, and attachment reminders inside Outlook Web.
     </p>
     <div class="hero-actions">
-      <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-primary">
+      <a href="https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn" class="btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
         Add to Chrome &mdash; Free
       </a>
       <a href="#features" class="btn-secondary">See features</a>
     </div>
     <p class="hero-note">Free forever with 3 of each. Pro unlocks unlimited.</p>
+  </div>
+</section>
+
+<!-- ANSWER FIRST -->
+<section class="answer" id="overview">
+  <div class="answer-panel">
+    <div>
+      <p class="section-label" style="text-align:left;">At a glance</p>
+      <h2>Outlook Power Tools is a free Chrome extension for New Outlook.</h2>
+      <p class="answer-lead">
+        It adds the missing workflows users search for after moving from Classic Outlook:
+        reusable email templates, Quick Steps, custom hotkeys, a clean ad-free inbox,
+        PDF export, unread count badges, and a forgotten attachment warning.
+      </p>
+      <p class="citation-note">
+        Citation-ready summary: Outlook Power Tools works on outlook.live.com,
+        outlook.office.com, and outlook.office365.com. The extension stores templates,
+        Quick Steps, and shortcuts locally in Chrome storage and does not transmit email
+        content, subjects, recipients, or attachments.
+      </p>
+    </div>
+    <ul class="fact-list">
+      <li><strong>Published:</strong> Chrome Web Store, March 31, 2026</li>
+      <li><strong>Version:</strong> 1.1.1 extension manifest</li>
+      <li><strong>Free plan:</strong> ad blocker, unread badge, attachment reminder, built-in templates, limited custom items</li>
+      <li><strong>Pro:</strong> unlimited templates, Quick Steps, shortcuts, and one-click PDF downloads</li>
+    </ul>
   </div>
 </section>
 
@@ -576,21 +714,42 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
       </div>
       <h3>Email Templates</h3>
-      <p>Save any reply as a reusable template. Insert it into compose with two clicks. Subject, body, recipients&nbsp;&mdash; all pre-filled.</p>
+      <p>Save reusable replies, canned responses, subject lines, recipients, and body text. Insert them into New Outlook compose with two clicks.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon qs">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
       </div>
       <h3>Quick Steps</h3>
-      <p>Chain multiple actions into one click. Mark&nbsp;as&nbsp;read + move to folder. Flag + forward. Delete + archive. Your rules, your combos.</p>
+      <p>Run one-click Outlook workflows: mark as read + move to folder, flag + forward, delete + archive, or reply with a template.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon kb">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/><path d="M6 12h.01"/><path d="M10 12h.01"/><path d="M14 12h.01"/><path d="M18 12h.01"/><path d="M8 16h8"/></svg>
       </div>
       <h3>Keyboard Shortcuts</h3>
-      <p>Record any key combination and bind it to templates, quick steps, or native Outlook actions. Ctrl+Shift+anything&nbsp;&mdash; it just works.</p>
+      <p>Record custom hotkeys and bind them to templates, Quick Steps, archive, flag, move to folder, new mail, or mark-as-read actions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon ad">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6A3 3 0 0012 17h5"/><path d="M7 17h.01"/><path d="M5 7h10a4 4 0 014 4v2"/></svg>
+      </div>
+      <h3>Outlook Ad Blocker</h3>
+      <p>Remove sidebar ads, fake email ads, upgrade banners, and Ad Choices labels from Outlook Web. Included in the free plan.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon pdf">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/><path d="M9 18h3"/></svg>
+      </div>
+      <h3>Save Email as PDF</h3>
+      <p>Export any open Outlook email as a PDF. Free users get the print dialog; Pro users get one-click downloads.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 00-12 0c0 7-3 7-3 7h18s-3 0-3-7"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+      </div>
+      <h3>Unread Count Badge</h3>
+      <p>Show unread email count on the browser tab, page title, and extension icon so Outlook can stay in the background.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon att">
@@ -599,6 +758,36 @@
       <h3>Attachment Reminder</h3>
       <p>Wrote "attached" but forgot the file? The extension catches it before you hit Send. Never send an empty "see attached" email again.</p>
     </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="features" id="guides" style="padding-top: 24px;">
+  <p class="section-label">SEO guides</p>
+  <h2 class="section-title">Answers for the searches New Outlook users make.</h2>
+  <div class="guide-grid">
+    <a class="guide-card" href="/new-outlook-missing-features">
+      <h3>New Outlook missing features</h3>
+      <p>A direct guide to Quick Steps, templates, shortcuts, PDF export, unread badge, and attachment reminders after switching from Classic Outlook.</p>
+    </a>
+    <a class="guide-card" href="/email-templates">
+      <h3>Outlook email templates</h3>
+      <p>How reusable replies, canned responses, and saved snippets work in Outlook Power Tools.</p>
+    </a>
+    <a class="guide-card" href="/quick-steps">
+      <h3>Quick Steps for New Outlook</h3>
+      <p>One-click action combos for moving, flagging, archiving, and replying with templates.</p>
+    </a>
+    <a class="guide-card" href="/save-outlook-email-as-pdf">
+      <h3>Save Outlook email as PDF</h3>
+      <p>Print-dialog export for free users and one-click PDF download for Pro users.</p>
+    </a>
+  </div>
+  <div class="quote-card">
+    "Outlook Power Tools is built for people who moved to New Outlook and lost the
+    workflows that made email fast: reusable replies, Quick Steps, keyboard shortcuts,
+    clean inbox space, and reliable reminders." <br>
+    <span style="font-family: 'Outfit', sans-serif; color: var(--text-secondary); font-size: 13px;">Outlook Power Tools product note, April 2026</span>
   </div>
 </section>
 
@@ -617,12 +806,16 @@
         <div class="price">$0<span>/forever</span></div>
         <p class="price-note">No credit card required</p>
         <ul>
+          <li>Outlook ad blocker</li>
+          <li>Unread count badge</li>
+          <li>Attachment reminder</li>
+          <li>15 built-in templates</li>
           <li>3 email templates</li>
           <li>3 quick steps</li>
           <li>3 keyboard shortcuts</li>
-          <li>Attachment reminder</li>
+          <li>PDF export via print dialog</li>
         </ul>
-        <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-secondary">Get started</a>
+        <a href="https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn" class="btn-secondary">Get started</a>
       </div>
       <div class="price-card pro">
         <h3>Pro</h3>
@@ -632,7 +825,8 @@
           <li>Unlimited templates</li>
           <li>Unlimited quick steps</li>
           <li>Unlimited shortcuts</li>
-          <li>Attachment reminder</li>
+          <li>One-click PDF download</li>
+          <li>All free features included</li>
           <li>Priority support</li>
         </ul>
         <button id="stripe-checkout-btn" class="btn-primary" onclick="startStripeCheckout()">Subscribe — $3.99/mo</button>
@@ -645,23 +839,35 @@
 <!-- FAQ -->
 <section class="features" id="faq" style="padding-top: 40px;">
   <p class="section-label">FAQ</p>
-  <h2 class="section-title">Common questions</h2>
+  <h2 class="section-title">Common New Outlook questions</h2>
   <div style="max-width: 720px; margin: 0 auto;">
     <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
-      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Does Outlook Power Tools work with New Outlook?</summary>
-      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. It works on outlook.live.com, outlook.office.com, and outlook.office365.com — all versions of New Outlook in the browser. Compatible with any Chromium-based browser.</p>
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">What is Outlook Power Tools?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Outlook Power Tools is a Chrome extension for New Outlook and Outlook Web App. It restores missing productivity workflows such as reusable email templates, Quick Steps, custom keyboard shortcuts, ad blocking, PDF export, unread count badges, and attachment reminders.</p>
     </details>
     <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
       <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Where are Quick Steps in New Outlook?</summary>
-      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Microsoft limited Quick Steps in New Outlook. This extension restores them — create custom action combos (mark as read + move to folder, flag + forward) and run them with one click or a keyboard shortcut.</p>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">New Outlook has limited Quick Steps support, especially for personal Outlook accounts. Outlook Power Tools adds browser-based Quick Steps so you can run custom action combos like mark as read plus move to folder or reply with a template.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Can I create email templates in New Outlook?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. Save reusable replies, canned responses, subject lines, recipients, and body text, then insert them into New Outlook compose windows with two clicks.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Can I remove ads from Outlook Web?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. The free ad blocker removes Outlook Web sidebar ads, fake email ads, upgrade banners, and Ad Choices labels.</p>
+    </details>
+    <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
+      <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Can I save Outlook emails as PDF?</summary>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. Click the PDF button in the toolbar to export any open Outlook email. Free users get the browser print dialog; Pro users get one-click PDF downloads.</p>
     </details>
     <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
       <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Is it free?</summary>
-      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. The free plan includes 3 email templates, 3 quick steps, 3 keyboard shortcuts, and the attachment reminder (always free). Pro ($3.99/month or $29.99/year) unlocks unlimited everything.</p>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">Yes. The free plan includes ad blocker, unread badge, attachment reminder, built-in templates, 3 custom templates, 3 Quick Steps, 3 keyboard shortcuts, and PDF export via print dialog. Pro unlocks unlimited custom items and one-click PDF download.</p>
     </details>
     <details style="border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; background: var(--surface);">
       <summary style="padding: 18px 24px; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none;">Does it read my emails?</summary>
-      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">No. Templates and shortcuts are stored locally in your browser. The extension does not read, store, or transmit your email content. See our <a href="/privacy.html" style="color: var(--blue);">privacy policy</a>.</p>
+      <p style="padding: 0 24px 18px; color: var(--text-secondary); font-size: 14px; line-height: 1.7;">No. Templates, Quick Steps, and shortcuts are stored locally in your browser. The extension does not transmit email content, subjects, recipients, or attachments. See our <a href="/privacy.html" style="color: var(--blue);">privacy policy</a>.</p>
     </details>
   </div>
 </section>
@@ -678,7 +884,7 @@
       <span id="licenseKeyText">...</span>
       <span class="hint">Click to copy</span>
     </div>
-    <a href="https://chromewebstore.google.com/detail/outlook-power-tools" class="btn-primary">Open Extension</a>
+    <a href="https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn" class="btn-primary">Open Extension</a>
   </div>
 </div>
 
@@ -689,7 +895,8 @@
     <div class="footer-links">
       <a href="/privacy.html">Privacy Policy</a>
       <a href="mailto:novikn552ta@gmail.com">Support</a>
-      <a href="https://chromewebstore.google.com/detail/outlook-power-tools">Chrome Web Store</a>
+      <a href="/llms.txt">LLMS</a>
+      <a href="https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn">Chrome Web Store</a>
     </div>
   </div>
 </footer>

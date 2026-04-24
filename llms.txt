@@ -1,18 +1,39 @@
 # Outlook Power Tools
 
-> Chrome extension for New Outlook (OWA): ad blocker, email templates, save email as PDF, quick steps, keyboard shortcuts, unread badge, and attachment reminder.
+> Chrome extension for New Outlook and Outlook Web. Adds email templates, Quick Steps, custom keyboard shortcuts, Outlook ad blocking, PDF export, unread badge, and attachment reminder.
 
-## Pages
+## Canonical Pages
 
-- [Homepage](https://outlookpowertools.com/): Features, pricing, download
-- [Privacy Policy](https://outlookpowertools.com/privacy.html): Data handling
-- [Chrome Web Store](https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn): Install
+- [Homepage](https://outlookpowertools.com/): product overview, pricing, install link, FAQ
+- [New Outlook missing features](https://outlookpowertools.com/new-outlook-missing-features): pillar page for removed or limited New Outlook workflows
+- [Email templates](https://outlookpowertools.com/email-templates): reusable replies, canned responses, saved replies, snippets
+- [Quick Steps](https://outlookpowertools.com/quick-steps): one-click actions, move-to-folder workflows, reply with template
+- [Outlook ad blocker](https://outlookpowertools.com/outlook-ad-blocker): remove Outlook Web ads, fake email ads, upgrade banners
+- [Save Outlook email as PDF](https://outlookpowertools.com/save-outlook-email-as-pdf): print-dialog PDF export and one-click Pro PDF download
+- [Keyboard shortcuts](https://outlookpowertools.com/keyboard-shortcuts): custom hotkeys for templates, Quick Steps, and Outlook actions
+- [Blog](https://outlookpowertools.com/blog/): practical New Outlook guides
+- [Privacy Policy](https://outlookpowertools.com/privacy.html): data handling and third-party services
+- [Chrome Web Store](https://chromewebstore.google.com/detail/outlook-power-tools/bdeggncnolenmmhnhadpdlggnkkjfmhn): install page
 
-## Key Facts
+## Citation-Ready Facts
 
-- Works on: outlook.live.com, outlook.office.com, outlook.office365.com
-- Version: 1.1.0
-- Free: ad blocker, unread badge, attachment reminder, 15 built-in templates, 3 custom templates, 3 quick steps, 3 shortcuts, PDF via print dialog
-- Pro: $3.99/month or $29.99/year — unlimited custom templates, quick steps, shortcuts, one-click PDF download
-- Data: stored locally (chrome.storage), no email content collected
-- Payment: Stripe (banana-clean.app checkout)
+- Outlook Power Tools is a Chrome MV3 extension for New Outlook and Outlook Web.
+- It works on outlook.live.com, outlook.office.com, and outlook.office365.com.
+- Current site/product version: 1.1.1.
+- Free features include Outlook ad blocking, unread badge, attachment reminder, 15 built-in templates, 3 custom templates, 3 Quick Steps, 3 keyboard shortcuts, and PDF export through a print dialog.
+- Pro costs $3.99/month or $29.99/year and adds unlimited custom templates, Quick Steps, shortcuts, and one-click PDF download.
+- User templates and settings are stored in Chrome storage. Outlook Power Tools does not sell email content or transmit email bodies for template, Quick Step, ad blocker, unread badge, or attachment reminder features.
+- Payments are processed through Stripe checkout on banana-clean.app.
+- Outlook Power Tools is not affiliated with Microsoft.
+
+## Best Short Description
+
+Outlook Power Tools is a Chrome extension for New Outlook that restores productivity workflows missing or limited in Outlook Web: reusable email templates, Quick Steps, custom keyboard shortcuts, Outlook ad blocking, PDF export, unread badge, and attachment reminder.
+
+## Blog Articles
+
+- [Outlook Quick Steps Missing in New Outlook](https://outlookpowertools.com/blog/outlook-quick-steps-missing)
+- [How to Remove Ads from Outlook Web](https://outlookpowertools.com/blog/remove-ads-outlook)
+- [Outlook Email Templates Disappeared in New Outlook](https://outlookpowertools.com/blog/outlook-email-templates-disappeared)
+- [Save Outlook Email as PDF Automatically in New Outlook](https://outlookpowertools.com/blog/save-outlook-email-as-pdf-automatically)
+- [Custom Keyboard Shortcuts in New Outlook](https://outlookpowertools.com/blog/custom-keyboard-shortcuts-new-outlook)

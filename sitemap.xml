@@ -2,13 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://outlookpowertools.com/</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://outlookpowertools.com/privacy.html</loc>
-    <lastmod>2026-03-31</lastmod>
-    <priority>0.5</priority>
+    <loc>https://outlookpowertools.com/new-outlook-missing-features</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/email-templates</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/quick-steps</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/outlook-ad-blocker</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/save-outlook-email-as-pdf</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/keyboard-shortcuts</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/blog/</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/blog/outlook-email-templates-disappeared</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/blog/save-outlook-email-as-pdf-automatically</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/blog/custom-keyboard-shortcuts-new-outlook</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://outlookpowertools.com/blog/outlook-quick-steps-missing</loc>
@@ -18,6 +63,11 @@
   <url>
     <loc>https://outlookpowertools.com/blog/remove-ads-outlook</loc>
     <lastmod>2026-04-02</lastmod>
-    <priority>0.8</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://outlookpowertools.com/privacy.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <priority>0.45</priority>
   </url>
 </urlset>
